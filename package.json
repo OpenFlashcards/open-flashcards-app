@@ -8,7 +8,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "generate-client": "openapi-generator-cli generate -i swagger.json -g typescript-fetch -o src/api/generated --additional-properties=typescriptThreePlus=true,supportsES6=true,npmName=open-flashcards-api,withInterfaces=true",
+    "generate-client:clean": "rm -rf src/api/generated && npm run generate-client"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
@@ -40,10 +42,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@openapitools/openapi-generator-cli": "^2.21.0",
     "@types/react": "~19.0.10",
-    "typescript": "~5.8.3",
     "eslint": "^9.25.0",
-    "eslint-config-expo": "~9.2.0"
+    "eslint-config-expo": "~9.2.0",
+    "typescript": "~5.8.3"
   },
   "private": true
 }
